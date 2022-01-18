@@ -119,12 +119,114 @@ main{
     max-height: 760px;
 }
 
+/*Inizio sezione attiva e disattiva notifiche*/
 .disable-notifications{
+    height: 80px;
     background-color: #84d3fc;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 .no-notifications{
     height: 55px;
     width: 55px;    
     margin-left: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #84d3fc;
+    font-size: 20px;
+}
+
+.no-notif-txt{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.no-notif-txt span:first-child{
+    font-size: 18px;
+}
+
+.no-notif-txt span:last-child{
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.no-notif-txt span:last-child i{
+    font-size: 11px;
+}
+/*Fine sezione attiva e disattiva notifiche*/
+
+/*Inizio Sezione ricerca contatti*/
+.search-users{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.search-users, .search-users span{
+    background-color: #fff;
+}
+
+.search-users span{
+    padding: 5px;
+    border-left: 2px solid rgb(133, 133, 133);    
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.input-user, .search-users span{
+    border-top: 2px solid rgb(133, 133, 133);
+    border-bottom: 2px solid rgb(133, 133, 133);
+}
+
+.input-user{
+    width: 60%;
+    height: 34px;
+    padding: 6px;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 2px solid rgb(133, 133, 133);
+}
+/*Fine Sezione ricerca contatti*/
+
+/*Inizio Sezione chat utenti*/
+.users-chats{
+    padding: 10px 0 10px;
+    display: flex;
+    justify-content: start;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.chat-data{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-date{
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-date span:first-child{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.user-date span:last-child{
+    font-size: 13px;
+    color: grey;
+}
+
+.interlocutor-mess{
+    font-size: 14px;
 }

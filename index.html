@@ -14,7 +14,7 @@
     <div class="bg-bottom"></div>
 
     <div id="app" class="container">
-        
+
         <header>
             <div class="top-left">
                 <div class="img-user">
@@ -58,11 +58,34 @@
                         </div>
                         <div class="no-notif-txt">
                             <span>Ricevi notifiche di nuovi messaggi</span>
-                            <span>Attiva notifiche desktop<i class="fa-solid fa-chevron-right"></i></span>
+                            <span>Attiva notifiche desktop <i class="fa-solid fa-chevron-right"></i></span>
                         </div>
                     </div>
 
+                    <!--Sezione ricerca contatti-->
+                    <div class="search-users">
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" class="input-user" placeholder="Cerca o inizia una nuova chat">
+                    </div>
 
+                    <!--Sezione chat utenti-->
+                    <section>
+                        <div class="users-chats" v-for="(users, index) in contacts">
+                            <div class="img-user">
+                                <img :src="[users.avatar]" alt="">
+                            </div>
+                            <div class="chat-data">
+                                <div class="name-interlocutor">
+                                    <div class="user-date">
+                                        <span>{{users.name}}</span>
+                                        <span>18/01/2022 11:56:27</span>
+                                    </div>                                    
+                                    <span class="interlocutor-mess">online</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </section>
                 </div>
             </section>
             
