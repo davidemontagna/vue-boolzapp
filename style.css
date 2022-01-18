@@ -1,5 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    display: inline-block;
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.bg-top{
+    width: 100vw;
+    height: 15%;
+    background-color: #048c7e;
+}
+
+.bg-bottom{
+    width: 100vw;
+    height: 85%;
+    background-color: #d4d6d2;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 70%;
+    height: 90%;
+    background-color: #e8e7e9;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+.top-left{
+    width: 30%;
+    height: 80px;
+    background-color: #e8e7e9;
+    border-right: 1px solid #a8a8a8;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-left-logos, .top-right-logos{
+    margin-right: 10px;    
+    display: flex;
+    justify-content: space-around;
+    color: #a9a8aa;
+}
+
+/*Parte header a sinistra*/
+.top-left-logos{
+    width: 40%;
+}
+
+.img-user{
+    height: 55px;
+    width: 55px;    
+    margin-left: 20px;
+}
+
+.img-user img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+/* FINE parte header a sinistra*/
+
+/*Parte header a destra*/
+.top-right{
+    width: 70%;
+    height: 80px;
+    background-color: #e8e7e9;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-right-logos{
+    width: 20%;
+}
+
+.interlocutor{
+    width: 40%;
+    display: flex;
+    justify-content: start;
+}
+
+.name-interlocutor{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.status{
+    font-size: 18px;
+}
+/* FINE parte header a destra*/
+
+main{
+    height: 763px;
+}
+/*Sezione colonna utenti a sinistra*/
+.users-column{
+    width: 30%;
+    max-height: 760px;
+}
+
+.disable-notifications{
+    background-color: #84d3fc;
+}
+
+.no-notifications{
+    height: 55px;
+    width: 55px;    
+    margin-left: 20px;
 }
