@@ -91,6 +91,7 @@ let app = new Vue({
             }
         ],
         userActive: 0,
+        newMessage: "",
     },
     methods: {
         isActive: function(index){
@@ -100,11 +101,33 @@ let app = new Vue({
             return "not-active";
         },
         
+        //funzione per assegnare un colore al messaggio a seconda se sia inviato o ricevuto
         statusMessage: function(message){
             if(message.status == 'received'){                
                 return "mess-received";
             }
             return "mess-sent";
+        },
+
+        sendMessage: function(message){
+            this.contacts[this.userActive].messages.push(
+
+                {
+                    text: message,
+                    status: 'sent'
+            }
+            )
+            this.newMessage = "";
+            setTimeout(() => {
+                this.contacts[this.userActive].messages.push(
+                    {
+                        text: 'Ok',
+                        status: 'received'
+                    }
+                )
+            }, 1000)
+
         }
+
     }
 })
