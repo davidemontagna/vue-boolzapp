@@ -86,9 +86,25 @@ let app = new Vue({
                         text: 'Si, ma stasera preferirei andare a mangiare sushi',
                         status: 'received'
                     }
-
+                    
                 ]
             }
-        ]
+        ],
+        userActive: 0,
+    },
+    methods: {
+        isActive: function(index){
+            if(index == this.userActive){
+                return "";
+            }
+            return "not-active";
+        },
+        
+        statusMessage: function(message){
+            if(message.status == 'received'){                
+                return "mess-received";
+            }
+            return "mess-sent";
+        }
     }
 })

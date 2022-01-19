@@ -28,12 +28,12 @@
                 
             </div>
             <div class="top-right">
-                <div class="interlocutor">
+                <div class="interlocutor" v-for="(user, index) in contacts" :class="isActive(index)">
                     <div class="img-user">
-                        <img src="img/avatar-1.jpg" alt="">
+                        <img :src="user.avatar" alt="">
                     </div>
                     <div class="name-interlocutor">
-                        <span>Luna</span>
+                        <span>{{user.name}}</span>
                         <span class="status">online</span>
                     </div>
 
@@ -48,7 +48,7 @@
 
         <main>
             <!--Sezione colonna utenti a sinistra-->
-            <section>
+            <section class="left-column">
                 <div class="users-column">
 
                     <!--Sezione attiva e disattiva notifiche-->
@@ -69,8 +69,8 @@
                     </div>
 
                     <!--Sezione elenco chat utenti-->
-                    <section>
-                        <div class="users-chats" v-for="(users, index) in contacts">
+                    <section >
+                        <div class="users-chats" v-for="(users, index) in contacts" @click="userActive = index">
                             <div class="img-user">
                                 <img :src="[users.avatar]" alt="">
                             </div>
@@ -91,7 +91,7 @@
             
             <!--Sezione chat con un determinato utente-->
             
-                <div class="chat">
+                <!--<div class="chat">
                     <div class="mess-received clearfix">
                         <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi dolores dolor obcaecati debitis nihil deserunt explicabo suscipit, id sunt, aliquam atque dolore quasi quam commodi molestias eos? Doloribus, veritatis debitis? Repellendus officia veniam necessitatibus hic enim reprehenderit quas, vel vitae atque. Itaque quaerat laborum explicabo quo consequatur ut possimus aspernatur?</span>
                         <span>s</span>
@@ -99,13 +99,33 @@
                     <div class="mess-sent clearfix">
                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, expedita?</span>
                     </div>
-                </div>
+                </div>-->
             
 
             <!--Sezione per inviare un nuovo messaggio-->
-            <section>
-                <div class="new-message">
+            <section class="right-column">
+                <div class="chat">
+                    <div class="clearfix" v-for="(message, index) in contacts[userActive].messages" :class="statusMessage(message)">
+                        <span class="chat-message">{{message.text}} <span>{{message.date}}</span></span>
+                        
+                        <!--<span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi dolores dolor obcaecati debitis nihil deserunt explicabo suscipit, id sunt, aliquam atque dolore quasi quam commodi molestias eos? Doloribus, veritatis debitis? Repellendus officia veniam necessitatibus hic enim reprehenderit quas, vel vitae atque. Itaque quaerat laborum explicabo quo consequatur ut possimus aspernatur?</span>
+                        <span>s</span>-->
+                    </div>
+                <!--<div class="mess-sent clearfix">
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, expedita?</span>
+                    </div>-->
+                </div>
 
+                <div class="new-message clearfix">
+                    <div class="emoji">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <div class="input-msg">
+                        <input type="text" placeholder="Scrivi un nuovo messaggio">
+                    </div>
+                    <div class="audio">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
                 </div>
             </section>
             
