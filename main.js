@@ -98,6 +98,7 @@ let app = new Vue({
         ],
         userActive: null,
         newMessage: "",
+        srcUserInput: ""
     },
     methods: {
         isActive: function(index){
@@ -118,7 +119,6 @@ let app = new Vue({
         //funzione per l'invio del messaggio e risposta "ok" dopo un secondo
         sendMessage: function(message){
             this.contacts[this.userActive].messages.push(
-
                 {
                     text: message,
                     status: 'sent'
@@ -134,6 +134,13 @@ let app = new Vue({
                 )
             }, 1000)
 
+        },
+
+        searchUser: function(char){
+            srcUserInput = char.split('');
+            console.log(srcUserInput);
+            
+            
         }
 
     }

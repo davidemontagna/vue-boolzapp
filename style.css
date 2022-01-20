@@ -275,6 +275,7 @@ main{
 }
 
 .interlocutor-mess{
+    margin-top: 5px;
     font-size: 14px;
 }
 /*Fine Sezione elenco chat utenti*/
