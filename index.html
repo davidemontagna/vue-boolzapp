@@ -18,7 +18,8 @@
         <header>
             <div class="top-left">
                 <div class="img-user">
-                    <img src="img/avatar-1.jpg" alt="">
+                    <img :src="'img/avatar'+user.avatar+'.jpg'" alt="">
+                    <span>{{user.name}}</span>
                 </div>
                 <div class="top-left-logos">
                     <i class="fa-regular fa-circle"></i>
@@ -30,7 +31,7 @@
             <div class="top-right">
                 <div class="interlocutor" v-for="(user, index) in contacts" :class="isActive(index)">
                     <div class="img-user">
-                        <img :src="user.avatar" alt="">
+                        <img :src="'img/avatar'+user.avatar+'.jpg'" alt="">
                     </div>
                     <div class="name-interlocutor">
                         <span>{{user.name}}</span>
@@ -61,24 +62,26 @@
                             <span>Attiva notifiche desktop <i class="fa-solid fa-chevron-right"></i></span>
                         </div>
                     </div>
+                    <!--Fine sezione attiva e disattiva notifiche-->
 
                     <!--Sezione ricerca contatti-->
                     <div class="search-users">
                         <span><i class="fa-solid fa-magnifying-glass"></i></span>
                         <input type="text" class="input-user" placeholder="Cerca o inizia una nuova chat">
                     </div>
+                    <!--Fine sezione ricerca contatti-->
 
                     <!--Sezione elenco chat utenti-->
-                    <section >
+                    <section class="users-column">
                         <div class="users-chats" v-for="(users, index) in contacts" @click="userActive = index">
                             <div class="img-user">
-                                <img :src="[users.avatar]" alt="">
+                                <img :src="'img/avatar'+users.avatar+'.jpg'" alt="">
                             </div>
                             <div class="chat-data">
                                 <div class="name-interlocutor">
                                     <div class="user-date">
                                         <span>{{users.name}}</span>
-                                        <span>18/01/2022 11:56:27</span>
+                                        <span>{{users.messages[0].date}}</span>
                                     </div>                                    
                                     <span class="interlocutor-mess">online</span>
                                 </div>
@@ -86,34 +89,23 @@
                             
                         </div>
                     </section>
+                    <!--Fine sezione elenco chat utenti-->
                 </div>
-            </section>
+            </section>        
             
-            <!--Sezione chat con un determinato utente-->
-            
-                <!--<div class="chat">
-                    <div class="mess-received clearfix">
-                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi dolores dolor obcaecati debitis nihil deserunt explicabo suscipit, id sunt, aliquam atque dolore quasi quam commodi molestias eos? Doloribus, veritatis debitis? Repellendus officia veniam necessitatibus hic enim reprehenderit quas, vel vitae atque. Itaque quaerat laborum explicabo quo consequatur ut possimus aspernatur?</span>
-                        <span>s</span>
-                    </div>
-                    <div class="mess-sent clearfix">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, expedita?</span>
-                    </div>
-                </div>-->
-            
-
-            <!--Sezione per inviare un nuovo messaggio-->
+            <!--Sezione destra, chat con un determinato utente e invio nuovo messaggio-->
             <section class="right-column">
                 <div class="chat">
-                    <div class="clearfix" v-for="(message, index) in contacts[userActive].messages" :class="statusMessage(message)">
-                        <span class="chat-message">{{message.text}} <span>{{message.date}}</span></span>
-                        
-                        <!--<span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi dolores dolor obcaecati debitis nihil deserunt explicabo suscipit, id sunt, aliquam atque dolore quasi quam commodi molestias eos? Doloribus, veritatis debitis? Repellendus officia veniam necessitatibus hic enim reprehenderit quas, vel vitae atque. Itaque quaerat laborum explicabo quo consequatur ut possimus aspernatur?</span>
-                        <span>s</span>-->
+                    <div v-if="userActive != null">
+                        <div class="clearfix" v-for="message in contacts[userActive].messages" :class="statusMessage(message)">
+                            <span class="chat-message">
+                                {{message.text}} 
+                                <span>{{message.date}}</span>
+                            </span>                           
+                        </div>
                     </div>
-                <!--<div class="mess-sent clearfix">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, expedita?</span>
-                    </div>-->
+                    
+                
                 </div>
 
                 <div class="new-message clearfix">
@@ -121,13 +113,14 @@
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
                     <div class="input-msg">
-                        <input type="text" v-model="newMessage"  @keyup.enter="sendMessage(newMessage)" placeholder="Scrivi un nuovo messaggio">
+                        <input type="text" v-model="newMessage" @keyup.enter="sendMessage(newMessage)" placeholder="Scrivi un nuovo messaggio">
                     </div>
                     <div class="audio">
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>
             </section>
+            <!--Fine sezione destra, chat con un determinato utente e invio nuovo messaggio-->
             
         </main>
     </div>

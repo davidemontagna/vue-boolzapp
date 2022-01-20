@@ -12,6 +12,7 @@ body{
     display: inline-block;
     position: relative;
     font-family: 'Source Sans Pro', sans-serif;
+    
 }
 
 .bg-top{
@@ -33,7 +34,6 @@ body{
     transform: translate(-50%, -50%);
     z-index: 2;
     width: 70%;
-    height: 90%;
     background-color: #e8e7e9;
 }
 
@@ -79,12 +79,20 @@ header{
     height: 55px;
     width: 55px;    
     margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .img-user img{
     height: 100%;
     width: 100%;
     border-radius: 50%;
+}
+
+.img-user span{
+    margin-left: 5px;
+    font-size: 17px;
+    font-weight: bold;
 }
 /* FINE parte header a sinistra*/
 
@@ -136,6 +144,7 @@ main{
 /*Sezione colonna utenti a sinistra*/
 .left-column{
     width: 30%;
+    overflow: hidden;
 }
 
 .users-column{
@@ -211,7 +220,7 @@ main{
 }
 
 .input-user{
-    width: 60%;
+    width: 80%;
     height: 34px;
     padding: 6px;
     border-left: none;
@@ -222,11 +231,24 @@ main{
 /*Fine Sezione ricerca contatti*/
 
 /*Inizio Sezione elenco chat utenti*/
+.users-column{
+    overflow: hidden;  
+    overflow: scroll;
+}
+
+.users-column::-webkit-scrollbar{
+    display: none;
+}
+
 .users-chats{
     padding: 10px 0 10px;
     display: flex;
     justify-content: start;
     border-bottom: 1px solid #a8a8a8;
+}
+
+.users-chats:hover{
+    background-color: #b1b1b1;
 }
 
 .chat-data{
@@ -271,7 +293,13 @@ main{
     height: 710px;
     width: 100%;
     background-image: url(img/bg-chat.jpg);
-    background-size: cover;    
+    background-size: cover; 
+    overflow: hidden;  
+    overflow: scroll; 
+}
+
+.chat::-webkit-scrollbar{
+    display: none;
 }
 
 .mess-received{
@@ -295,6 +323,7 @@ main{
     max-width: 400px;  
     border: 1px solid #a8a8a8;
     border-radius: 10px;
+    word-break: break-all;
 }
 
 .chat-message span{

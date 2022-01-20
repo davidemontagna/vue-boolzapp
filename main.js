@@ -1,24 +1,28 @@
 let app = new Vue({
     el: '#app',
     data:{
+        user: {
+            name: 'Davide',
+            avatar: '_me'
+        },
         contacts: [
             {
                 name: 'Luna',
-                avatar: 'img/_1.jpg',
+                avatar: '_1',
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '10/01/2022 15:30:55',
                         text: 'Hai portato a spasso il cane?',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: '10/01/2022 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:55:23',
+                        date: '10/01/2022 15:55:23',
                         text: 'Tutto fatto!',
                         status: 'received'
                     },
@@ -27,21 +31,21 @@ let app = new Vue({
             },
             {
                 name: 'Fabio',
-                avatar: 'img/_2.jpg',
+                avatar: '_2',
                 visible: true,
                 messages: [
                     {
-                        date: '20/03/2020 16:30:15',
+                        date: '20/12/2021 16:30:15',
                         text: 'Ciao, come stai?',
                         status: 'sent'
                     },
                     {
-                        date: '20/03/2020 16:38:00',
+                        date: '20/12/2021 16:38:00',
                         text: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received'
                     },
                     {
-                        date: '20/03/2020 16:40:42',
+                        date: '20/12/2021 16:40:42',
                         text: 'Mi piacerebbe ma devo andare a fare la spesa',
                         status: 'sent'
                     },
@@ -50,21 +54,21 @@ let app = new Vue({
             },
             {
                 name: 'Samuele',
-                avatar: 'img/_3.jpg',
+                avatar: '_3',
                 visible: true,
                 messages: [
                     {
-                        date: '22/03/2020 10:20:35',
+                        date: '22/11/2021 10:20:35',
                         text: 'Marianna va in campagna',
                         status: 'received'
                     },
                     {
-                        date: '22/03/2020 10:22:05',
+                        date: '22/11/2021 10:22:05',
                         text: 'Sicuro di non aver sbagliato persona?',
                         status: 'sent'
                     },
                     {
-                        date: '22/03/2020 10:26:09',
+                        date: '22/11/2021 10:26:09',
                         text: 'Ah scusa!',
                         status: 'received'
                     },
@@ -73,24 +77,26 @@ let app = new Vue({
             },
             {
                 name: 'Maurizio',
-                avatar: 'img/_4.jpg',
+                avatar: '_4',
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 18:30:45',
+                        date: '23/01/2020 18:30:45',
                         text: 'Lo sai che ha aperto una nuova pizzeria?',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 18:38:05',
+                        date: '23/01/2020 18:38:05',
                         text: 'Si, ma stasera preferirei andare a mangiare sushi',
                         status: 'received'
                     }
                     
                 ]
             }
+            
+            
         ],
-        userActive: 0,
+        userActive: null,
         newMessage: "",
     },
     methods: {
@@ -109,6 +115,7 @@ let app = new Vue({
             return "mess-sent";
         },
 
+        //funzione per l'invio del messaggio e risposta "ok" dopo un secondo
         sendMessage: function(message){
             this.contacts[this.userActive].messages.push(
 
