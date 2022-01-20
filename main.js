@@ -136,11 +136,22 @@ let app = new Vue({
 
         },
 
-        searchUser: function(char){
-            srcUserInput = char.split('');
-            console.log(srcUserInput);
-            
-            
+        //funzione per la ricerca del contatto
+        searchUser: function(inputChar){         
+            for(i=0; i < this.contacts.length; i++){
+
+                //imposto il nome dell'utente tutto in minuscolo e lo assegno a una variabile
+                let name = this.contacts[i].name.toLowerCase();
+
+                /*controllo se il nome include i caratteri inseriti dall'utente,
+                in quel caso assegno il valore "true" alla chiave "visible",
+                altrimenti assegno "false"*/
+                if(name.includes(inputChar)){
+                    this.contacts[i].visible = true;
+                }else{
+                    this.contacts[i].visible = false;
+                }
+            } 
         }
 
     }

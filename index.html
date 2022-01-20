@@ -73,7 +73,7 @@
 
                     <!--Sezione elenco chat utenti     -->
                     <section class="users-column">
-                        <div class="users-chats" v-if="searchUser == true" v-for="(users, index) in contacts" @click="userActive = index">
+                        <div class="users-chats" v-if="users.visible == true" v-for="(users, index) in contacts" @click="userActive = index">
                             <div class="img-user">
                                 <img :src="'img/avatar'+users.avatar+'.jpg'" alt="">
                             </div>
