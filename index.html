@@ -98,10 +98,8 @@
                 <div class="chat">
                     <div v-if="userActive != null">
                         <div class="clearfix" v-for="message in contacts[userActive].messages" :class="statusMessage(message)">
-                            <span class="chat-message">
-                                {{message.text}} 
-                                <span>{{message.date}}</span>
-                            </span>                           
+                            <span class="chat-message clearfix">{{message.text}}</span>    
+                            <span class="clearfix">{{message.date}}</span>                       
                         </div>
                     </div>
                     

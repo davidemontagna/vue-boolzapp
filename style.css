@@ -12,7 +12,7 @@ body{
     display: inline-block;
     position: relative;
     font-family: 'Source Sans Pro', sans-serif;
-    
+    overflow: hidden;
 }
 
 .bg-top{
@@ -60,7 +60,7 @@ header{
 }
 
 .top-left-logos, .top-right-logos, .emoji, .audio,
-.chat-message span{
+.mess-sent span:last-child, .mess-received span:last-child{
     color: #838383;
 }
 
@@ -76,8 +76,7 @@ header{
 }
 
 .img-user{
-    height: 55px;
-    width: 55px;    
+    height: 55px;   
     margin-left: 20px;
     display: flex;
     align-items: center;
@@ -85,7 +84,6 @@ header{
 
 .img-user img{
     height: 100%;
-    width: 100%;
     border-radius: 50%;
 }
 
@@ -137,14 +135,17 @@ header{
 /* FINE parte header a destra*/
 
 main{
-    height: 763px;
+    height: 80vh;
     display: flex;
     justify-content: center;
 }
 /*Sezione colonna utenti a sinistra*/
 .left-column{
     width: 30%;
+    height: 100%;
     overflow: hidden;
+    overflow: scroll;
+    border-right: 1px solid #a8a8a8;
 }
 
 .users-column{
@@ -232,11 +233,12 @@ main{
 
 /*Inizio Sezione elenco chat utenti*/
 .users-column{
+    width: 100%;
     overflow: hidden;  
     overflow: scroll;
 }
 
-.users-column::-webkit-scrollbar{
+.users-column::-webkit-scrollbar, .left-column::-webkit-scrollbar{
     display: none;
 }
 
@@ -252,13 +254,15 @@ main{
 }
 
 .chat-data{
-    margin-left: 15px;
+    width: 100%;
+    margin-right: 10px;
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
 }
 
 .user-date{
-    width: 290px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -270,7 +274,7 @@ main{
 }
 
 .user-date span:last-child{
-    font-size: 13px;
+    font-size: 12px;
     color: grey;
 }
 
@@ -285,13 +289,13 @@ main{
 /*Inizio Sezione chat con un determinato utente*/
 .right-column{
     width: 70%;
-    height: 760px;
+    height: 100%;
 }
 
 .chat{
     float: right;
     padding: 20px 15px 20px 15px;
-    height: 710px;
+    height: calc(100% - 80px + 27px);
     width: 100%;
     background-image: url(img/bg-chat.jpg);
     background-size: cover; 
@@ -303,47 +307,54 @@ main{
     display: none;
 }
 
+.mess-received, .mess-sent{
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #a8a8a8;
+    border-radius: 10px;    
+    min-width: 250px;
+    max-width: 380px;  
+    display: block;
+}
+
 .mess-received{
     float: left; 
-    margin-left: 20px;       
+    margin-left: 20px;  
+    background-color: #fff;  
 }
 
 .mess-sent{
     float: right;
-    margin-right: 20px;
-}
-
-.mess-received, .mess-sent{
-    min-width: 200px;
+    margin-right: 20px;    
+    background-color: #cef1bb;
 }
 
 .chat-message{
-    padding: 10px;
-    margin-top: 10px;
-    display: block;
-    max-width: 400px;  
-    border: 1px solid #a8a8a8;
-    border-radius: 10px;
     word-break: break-all;
+    float: left;
 }
 
 .chat-message span{
     font-size: 12px;
-    display: block;    
+    display: block;        
 }
 
 .mess-received span{
     display: flex;
     justify-content: flex-start;
-    flex-direction: column;
-    background-color: #fff;
+    flex-direction: column;    
 }
 
-.mess-sent span{
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    background-color: #cef1bb;
+.mess-sent span:first-child{
+    float: left;   
+}
+
+.mess-sent span:last-child{
+    float: right;    
+}
+
+.mess-sent span:last-child, .mess-received span:last-child{
+    font-size: 13px;
 }
 
 .new-message{
