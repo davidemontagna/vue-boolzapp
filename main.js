@@ -28,7 +28,7 @@ Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 Milestone 5 - opzionale
 ● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
 permette di cancellare il messaggio selezionato
-● Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+● Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
 */
 
 let app = new Vue({
@@ -187,6 +187,10 @@ let app = new Vue({
                     this.contacts[i].visible = false;
                 }
             } 
+        },
+
+        deleteMessage: function(index){
+            this.contacts[this.userActive].messages.splice(index, 1);
         }
 
     }

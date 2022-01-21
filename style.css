@@ -60,7 +60,7 @@ header{
 }
 
 .top-left-logos, .top-right-logos, .emoji, .audio,
-.mess-sent span:last-child, .mess-received span:last-child{
+.mess-sent span:last-child, .mess-received span:last-child, .dropdown-arrow{
     color: #838383;
 }
 
@@ -298,7 +298,7 @@ main{
     height: calc(100% - 80px + 27px);
     width: 100%;
     background-image: url(img/bg-chat.jpg);
-    background-size: cover; 
+    background-size: contain; 
     overflow: hidden;  
     overflow: scroll; 
 }
@@ -315,6 +315,7 @@ main{
     min-width: 250px;
     max-width: 380px;  
     display: block;
+    position: relative;
 }
 
 .mess-received{
@@ -357,6 +358,41 @@ main{
     font-size: 13px;
 }
 
+.mess-received:hover .dropdown, .mess-sent:hover .dropdown{
+    display: block;
+    
+}
+
+.dropdown{
+    display: none;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+        
+}
+
+.dropdown-arrow{
+    box-shadow: 0px 0px 8px 8px #d9e2d4;
+    background-color: #d9e2d4;
+}
+
+.delete-message{
+    width: 150px;
+    padding: 5px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid ;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    box-shadow: 1px 2px 3px #888888;
+}
+
+.delete-message:hover{
+    text-decoration: underline;
+}
+
+/*Sezione input nuovo messaggio*/
 .new-message{
     height: 53px;
     width: 100%;
@@ -376,8 +412,9 @@ main{
 }
 
 .input-msg input{
-    border-radius: 8px;
+    border-radius: 15px;
     padding: 5px;
     width: 100%;
     height: 100%;
 }
+

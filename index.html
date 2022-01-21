@@ -97,8 +97,15 @@
             <section class="right-column">
                 <div class="chat">
                     <div v-if="userActive != null">
-                        <div class="clearfix" v-for="message in contacts[userActive].messages" :class="statusMessage(message)">
-                            <span class="chat-message clearfix">{{message.text}}</span>    
+                        <div class="clearfix" v-for="(message, index) in contacts[userActive].messages" :class="statusMessage(message)">
+                            <span class="chat-message clearfix">{{message.text}}
+                                <div class="dropdown">
+                                    <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                                    <div @click="deleteMessage(index)" class="delete-message">Elimina messaggio</div>
+                                </div>
+                            </span>  
+                             
+                             
                             <span class="clearfix">{{message.date}}</span>                       
                         </div>
                     </div>
