@@ -151,24 +151,31 @@ let app = new Vue({
 
         //funzione per l'invio del messaggio e risposta "ok" dopo un secondo
         sendMessage: function(message){
-            this.contacts[this.userActive].messages.push(
-                {
-                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                    text: message,
-                    status: 'sent'
-            }
-            )
-            const chatActive = this.userActive;
-            this.newMessage = "";
-            setTimeout(() => {
-                this.contacts[chatActive].messages.push(
+
+            //condizione per impedire l'invio di un messaggio vuoto o con solo spazi
+            if(message.match(/^\s*$/)){
+               alert="inserisci del testo nel messaggio!"; 
+            }else{
+                this.contacts[this.userActive].messages.push(
                     {
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                        text: 'Ok',
-                        status: 'received'
-                    }
+                        text: message,
+                        status: 'sent'
+                }
                 )
-            }, 1000)
+                const chatActive = this.userActive;
+                this.newMessage = "";
+                setTimeout(() => {
+                    this.contacts[chatActive].messages.push(
+                        {
+                            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                            text: 'Ok',
+                            status: 'received'
+                        }
+                    )
+                }, 1000)
+            }
+            
 
         },
 
@@ -190,9 +197,12 @@ let app = new Vue({
             } 
         },
 
+        //funzione per eliminare un messaggio dalla chat
         deleteMessage: function(index){
             this.contacts[this.userActive].messages.splice(index, 1);
         }
+
+
 
     }
 })
