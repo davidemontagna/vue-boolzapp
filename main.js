@@ -154,7 +154,7 @@ let app = new Vue({
 
             //condizione per impedire l'invio di un messaggio vuoto o con solo spazi
             if(message.match(/^\s*$/)){
-               alert="inserisci del testo nel messaggio!"; 
+               alert("Inserisci del testo nel messaggio!"); 
             }else{
                 this.contacts[this.userActive].messages.push(
                     {
