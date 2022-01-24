@@ -158,9 +158,10 @@ let app = new Vue({
                     status: 'sent'
             }
             )
+            const chatActive = this.userActive;
             this.newMessage = "";
             setTimeout(() => {
-                this.contacts[this.userActive].messages.push(
+                this.contacts[chatActive].messages.push(
                     {
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text: 'Ok',
